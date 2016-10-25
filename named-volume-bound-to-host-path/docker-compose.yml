@@ -1,0 +1,20 @@
+version: '2'
+services:
+  test1:
+    image: alpine
+    volumes:
+    - data:/data
+    command: ls /data
+  test2:
+    image: alpine
+    volumes:
+    - data:/data
+    command: ls /data
+    
+volumes:
+  data:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: <host-path>
